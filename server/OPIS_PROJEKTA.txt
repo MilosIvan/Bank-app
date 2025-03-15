@@ -1,0 +1,12 @@
+Napravljen je model bankovnog sustava.
+
+Entiteti u bazi su 'korisnici', 'korisnicki_racuni', 'transakcije' i 'obavijesti'.
+
+Korisnik ima mogućnosti pregleda svih računa otvorenih u banci, kao i pregleda svih transakcija vezanih za svaki račun. Transakcije su sortirane po datumu koristeći custom pipe. 
+Moguće je i slanje novca s bilo kojeg računa na neki drugi. Pritom se u bazu zapisuje nova transakcija koja pamti novo stanje računa, a također se i samo stanje ažurira. Ukoliko je prilikom izrade transakcije naveden IBAN nekog postojećeg računa u banci, tada se i za taj račun zapisuje nova transakcija te se ažurira stanje računa.
+
+Obavijesti je također moguće pregledavati i brisati, a vodi se i evidencija o tome koje su obavijesti pročitane, odnosno koje još nisu. Otvaranje prozora za čitanje obavijesti implementirano je rutom s custom parametrima.
+
+Korisnik s administratorskim pravima ima mogućnost pregleda podataka o svim korisnicima i njihovim računima, brisanja računa (samo ako ne sadrže sredstva) i stvaranja novih te slanja obavijesti korisnicima, pri čemu može birati hoće li poslati obavijest konkretnom korisniku ili svim korisnicima.
+
+Implementirana je i prijava i registracija korisnika. Forme se validiraju i popraćene su povratnim porukama. Korišten je jwt za autentifikaciju korisnika. 
